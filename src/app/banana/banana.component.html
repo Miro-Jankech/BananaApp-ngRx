@@ -1,0 +1,61 @@
+<div class="flex-container">
+  <div class="side-spacer"></div>
+
+  <div class="main-content">
+    <h1>{{ title }}!</h1>
+
+    @if (banana(); as b) {
+      <div class="banana-actions">
+        <form (submit)="$event.preventDefault()">
+          <button class="local-button-border" (click)="newBanana()">New Banana</button>
+          <button class="local-button-border" (click)="peelBanana()">Peel Banana</button>
+          <button class="local-button-border" (click)="eatBanana()">Eat Banana</button>
+          <button class="local-button-border" (click)="timeHop()">Time Hop</button>
+        </form>
+
+        <div class="spacer-sm"></div>
+
+        <div class="banana-display">
+          
+          @if (b.color === 'yellow') {
+            @if (!b.isPeeled) {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/ZVIR5v6FgIvBtGQJRFARKkThwgINPIYhQC4_LJ8iQfEfy-kPgmHBkMviL5jSrj0Rr9eUJxGhhJNRFx9aoqPq0XfxA0yL3uerAOs6tENzS5YrW7LCuGf6Jq5AOLMxwc-60iU9QTieug=w2400" alt="New Banana"></a>
+              <h2>You should peel your banana.</h2>
+            } @else if (b.bitesRemaining >= 9) {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/UqIseepVkNZcjHENDO26urK5TcTB8g4OuB58S13FGDVjHxbJrGLI_PPV00wXil-F-jAGZCK9UlcdYGQTCVmyrlj3CZkbYNnwvt8k6KjiZX1d-WZ5agiysC6DJmFKWNCMpx8UItxcAg=w2400" alt="Peeled"></a>
+              <h2>Yum, looks delicious!</h2>
+            } @else if (b.bitesRemaining >= 3) {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/V2rjC6LToE3mllhHsuoin0FgQRMIfUIosU2kqx5ZQq2ydRFUsiB359yamoClDTjfj0osFGK_xJ5PAxqBm4sxAGQD01N9b_KkjQ7j1WriVcyts70flZ3_abWSggm0BG-hJ25G-PETUQ=w2400" alt="Eating"></a>
+              <h2>Tasty!</h2>
+            } @else {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/YcOltSxDivi4vF-wy4W4xlJhKcjWXxt7F-9IjiedI_DbYTa24LbbNqeziP1vqSigyn2zeSANnLSoTapxBdnercSQCOKnQTFbY0zjcKnKFdLwjXLN0m4DLJ0Cp7iHsBj1QEuCYAevPw=w2400" alt="Eaten"></a>
+              <h2>That was a great banana!</h2>
+            }
+          } 
+          
+          @else if (b.color === 'brown') {
+            @if (!b.isPeeled) {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/AgvLinydnfXbbw6Qcg-WoiSPs9BJEOsus3z5TSovtz54xlfsZPgkOnTK4FlBNK9npY4rgxBG--15tbq12q8gIZhTa1oJLjW1qGjAGfMUBhBH0hSRca9SQXxO8uWFXEn5HMkY528q9A=w2400" alt="Old"></a>
+              <h2>Bummer, you missed your chance</h2>
+            } @else if (b.bitesRemaining === 0) {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/RLLQRn3Hv2hlksl_GjeeqdeQe1AtuKmfxTKR2iG4Sm0fDNwzMPOS1iy5pUgpT21WTGi0UwfnUtuuGjRt6WG0tl7UxsA0TtuaqgsG2PPXxvTWGmiHpX2gRY1DRli944sSabKj03RHww=w2400" alt="Empty"></a>
+              <h2>Time to get a new banana</h2>
+            } @else {
+              <a href="..."><img width="300" src="https://lh3.googleusercontent.com/_wTQFNKfu_JIcxqb_9J84tgF7vvymy_0OzSHrqTPuxwY1FtcECwi89lV3dhaYMvsfpozs06mLWzkoMOBOT5OiLbkowyLyT6JkxctBNsI9uw99cgewCdkndRNfesasYMzhjyu09TSuA=w2400" alt="Old Peeled"></a>
+              <h2>I wouldn't eat any more of that banana...</h2>
+            }
+          }
+
+        </div>
+
+        <footer class="debug-info">
+          <h3>isPeeled = {{ b.isPeeled }}</h3>
+          <h3>bitesRemaining = {{ b.bitesRemaining }}</h3>
+          <h3>color = {{ b.color }}</h3>
+        </footer>
+      </div>
+    }
+  </div>
+
+  <div class="side-spacer-small"></div>
+</div>
